@@ -1943,7 +1943,7 @@ input, select, textarea {
 	}
 
 		#logo h1 {
-			background: #ff4486;
+			background: #004370;
 			color: #fff;
 			border-radius: 6px;
 			font-family: 'Oleo Script', serif;
@@ -1969,7 +1969,7 @@ input, select, textarea {
 	#nav {
 		position: absolute;
 		right: 0;
-		top: 0;
+		top: 70px;
 		font-size: 0.9em;
 	}
 
