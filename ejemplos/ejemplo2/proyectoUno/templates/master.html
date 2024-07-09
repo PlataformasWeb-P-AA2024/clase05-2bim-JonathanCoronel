@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -15,14 +15,17 @@
       {% endblock %}
     </title>
   </head>
-  <body>
+  <body class="is-preload right-sidebar">
     <!-- paso 5-->
     {% load socialaccount %}
     {% load account %}
-  <header>
-    <img src="{% static 'images/logo.png' %}" height="10%" width="10%" alt="My image">
-    <h1>Aplicación Administración - 2 </h1>
+  <header id="header" class="container">
+    
+    <div id="header-wrapper">
 
+      <div id="logo">
+        <h1><a href="{% url 'index' %}">UTPL</a></h1>
+      </div>
     <div class="">
         {% if messages %}
           <div class="messages">
@@ -32,12 +35,8 @@
           </div>
         {% endif %}
     </div>
-    <nav class="top_menu">
+    <nav class="top_menu" id="nav">
       <ul>
-
-        {% if user.is_authenticated %}
-          <li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
-        {% endif %}
         <li><a href="{% url 'index' %}">inicio</a></li>
         <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
         <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
@@ -49,7 +48,11 @@
         {% endif %}
       </ul>
     </nav>
+    </div>
   </header>
+  {% if user.is_authenticated %}
+ <span class="nombre_usuario"> Bienvenido: {{user.username}} </span>
+{% endif %}
   <section>
       {% block content %}
       {% endblock %}
