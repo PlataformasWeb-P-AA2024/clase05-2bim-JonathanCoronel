@@ -1,7 +1,8 @@
 {% extends "master.html" %}
 
 {% block content %}
-<h2>Editar Estudiante</h3>
+<div class="contenedor-editar">
+  <h2>Editar Estudiante</h2>
 
 <form action="" method="post">
   {% csrf_token %}
@@ -9,4 +10,5 @@
   <p><input type='submit' value='Actualizar'/></p>
 </form>
 
+</div>
 {% endblock %}

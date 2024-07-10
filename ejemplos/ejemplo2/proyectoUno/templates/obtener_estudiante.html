@@ -1,13 +1,13 @@
 {% extends "master.html" %}
 
 {% block content %}
-
-<h3>Datos de estudiante</h3>
-
-<p><b>Nombre:</b>{{estudiante.nombre}}</p>
-<p><b>Apellido:</b>{{estudiante.apellido}}</p>
-<p><b>Cédula:</b>{{estudiante.cedula}}</p>
-<p><b>Correo:</b>{{estudiante.correo}}</p>
-
+<div class="contenedor-estudiante">
+    <h2>Datos de estudiante</h2>
+    <p><b>Nombre: </b>{{estudiante.nombre}}</p>
+    <p><b>Apellido: </b>{{estudiante.apellido}}</p>
+    <p><b>Cédula: </b>{{estudiante.cedula}}</p>
+    <p><b>Correo: </b>{{estudiante.correo}}</p>
 <br/>
+</div>
+
 {% endblock %}

@@ -1,12 +1,49 @@
 {% extends "master.html" %}
 
 {% block content %}
-<h2>Crear Estudiante</h3>
+<h2>Crear Estudiante</h2>
+<!-- Main -->
+  <div id="main-wrapper">
+    <div class="container">
+      <div class="row gtr-200">
+        <div class="col-4 col-12-medium">
+          <div id="sidebar">
 
-<form action="" method="post">
-  {% csrf_token %}
-  {{formulario.as_p}}
-  <p><input type='submit' value='Agregar'/></p>
-</form>
+            <!-- Sidebar -->
+              <section>
+                <h3>Como crear Estudiante</h3>
+                <p>Para llenar el primer formulario, debes seguir estas reglas básicas. 
+                  En el campo de Nombre, ingresa solo el primer nombre utilizando únicamente letras, 
+                  sin incluir números ni caracteres especiales. En el campo de Apellido, ingresa solo el 
+                  primer apellido, también utilizando solo letras. Para el campo de Cédula, ingresa únicamente 
+                  números, asegurándote de que la longitud y el formato de la cédula sean correctos según la normativa 
+                  de tu país; por ejemplo, en algunos países, la cédula tiene 10 dígitos. En el campo de Correo, ingresa 
+                  una dirección de correo electrónico válida en el formato nombre@dominio.com, verificando que no contenga 
+                  espacios ni caracteres especiales no permitidos en correos electrónicos. Antes de hacer clic en el botón "Agregar", 
+                  asegúrate de que todos los campos estén completos y correctos. Si algún campo está vacío o incorrecto, se debe mostrar 
+                  un mensaje de error y no permitir el envío del formulario hasta que se corrijan los errores.</p>
+                <footer>
+                  <a href="#" class="button icon solid fa-info-circle">Fin sugerencia</a>
+                </footer>
+              </section>
+
+          </div>
+        </div>
+        <div class="col-8 col-12-medium imp-medium">
+          <div id="content">
+
+            <form action="" method="post">
+              {% csrf_token %}
+              {{formulario.as_p}}
+              <p><input type='submit' value='Agregar'/></p>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 {% endblock %}

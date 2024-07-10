@@ -4,12 +4,44 @@
 
 <h2>Crear Número Telefónico</h3>
 
-<form action="" method="post">
 
-  {% csrf_token %}
+  <!-- Main -->
+  <div id="main-wrapper">
+    <div class="container">
+      <div class="row gtr-200">
+        <div class="col-8 col-12-medium">
+          <div id="content">
 
-  {{formulario.as_p}}
+            <!-- Content -->
+            <form action="" method="post">
 
-  <p><input type='submit' value='Agregar'/></p>
-</form>
+              {% csrf_token %}
+            
+              {{formulario.as_p}}
+            
+              <p><input type='submit' value='Agregar'/></p>
+            </form>
+
+          </div>
+        </div>
+        <div class="col-4 col-12-medium">
+          <div id="sidebar">
+
+            <!-- Sidebar -->
+              <section>
+                <h3>Como crear Numero Telefonico</h3>
+                <p>Para llenar el segundo formulario, debes seguir estas reglas básicas. En el campo de Teléfono,
+                   ingresa únicamente números, verificando que el número telefónico tenga la longitud correcta según la 
+                   normativa de tu país; por ejemplo, en muchos países, el número telefónico debe tener 10 dígitos.
+                    No incluyas caracteres especiales como paréntesis, guiones o espacios. En el campo de Tipo, ingresa el 
+                    tipo correspondiente según lo especificado por la aplicación, como "Residencial" o "Comercial".</p>
+                <footer>
+                  <a href="#" class="button icon solid fa-info-circle">Find out more</a>
+                </footer>
+              </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

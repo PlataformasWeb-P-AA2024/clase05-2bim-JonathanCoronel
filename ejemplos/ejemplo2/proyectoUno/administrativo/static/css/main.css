@@ -39,8 +39,25 @@ ol, ul {
 
 .nombre_usuario{
 	color: black;
-	font-size: 20px;
+	font-size: 30px;
 }
+
+.contener-login , .contenedor-editar, .contenedor-telefono-estu{
+	width: 50%;
+	margin: 0 auto;
+}
+
+.contenedor-estudiante{
+	width: 50%;
+	margin: 0 auto;
+	padding: 0em 2em;
+}
+
+
+#banner-wrapper h2{
+	text-align: left;
+}
+ 
 
 blockquote, q {
 	quotes: none;
@@ -56,8 +73,23 @@ table {
 	border-spacing: 0;
 }
 
+th, td {
+	padding: 15px;
+	border-bottom: 1px solid black;
+  }
+  
+/*tr:hover {
+	background-color: #258EAD;
+  }*/
+
 body {
 	-webkit-text-size-adjust: none;
+	
+}
+
+.bloqueTabla{
+	margin: 20px 50px;
+
 }
 
 mark {
@@ -150,6 +182,7 @@ input, select, textarea {
 		font-size: 2.25em;
 		margin: 0 0 1.1em 0;
 		line-height: 1em;
+		text-align: center;
 	}
 
 	h3 {
@@ -195,6 +228,10 @@ input, select, textarea {
 
 	p, ul, ol, dl, table {
 		margin-bottom: 2em;
+	}
+
+	.col-5.col-12-medium{
+		font-size: 15px;
 	}
 
 /* Container */

@@ -5,45 +5,66 @@
 {% endblock %}
 
 {% block content %}
-<h3>Número de estudiantes {{ numero_estudiantes }}</h3>
+<!-- Banner -->
+<div id="banner-wrapper">
+  <div id="banner" class="box container">
+    <div class="row">
+      <div class="col-7 col-12-medium">
+        <h2> {% if user.is_authenticated %}
+          <span class="nombre_usuario"> Bienvenido: {{user.username}} </span>
+         {% endif %}</h2>
+        <p>Número de estudiantes: {{ numero_estudiantes }}</p>
+      </div>
+      <div class="col-5 col-12-medium">
+        <ul>
+          <li><a href="{% url 'crear_estudiante' %}" class="button large icon solid fa-arrow-circle-right">Agregar Estudiante</a></li>
+          <li><a href="{% url 'crear_numero_telefonico' %}" class="button alt large icon solid fa-question-circle">Agregar Telefono</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bloqueTabla">
+  <table id="tabla_datos">
 
-<table id="tabla_datos">
-
-  <thead>
+    <thead>
+      <tr>
+        <th>Estudiante</th>
+        <th>Cedula</th>
+        <th>Correo</th>
+        <th>Numeros Telefónico </th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+  
+    {% for e in estudiantes %}
     <tr>
-      <th>Estudiante</th>
-      <th>Cedula</th>
-      <th>Correo</th>
-      <th>Numeros Telefónico </th>
-      <th>Opciones</th>
+      <td> {{e.nombre}} {{e.apellido}}</td>
+      <td> {{e.cedula}}</td>
+      <td> {{e.correo}}</td>
+      <td>
+        <ul>
+          {% for t in e.numeros_telefonicos.all %}
+            <li>
+              <span>{{t.telefono}} - {{t.tipo}} - [<a href="{% url 'editar_numero_telefonico' t.id %}">editar</a>] </span>
+            </li>
+          {% endfor %}
+        </ul>
+          [<a href="{% url 'crear_numero_telefonico_estudiante' e.id%}">+Teléfono</a>]
+      </td>
+      <td> <a href="{% url 'obtener_estudiante' e.id %}">ver</a> <br>
+        <a href="{% url 'editar_estudiante' e.id %}">editar</a> <br>
+        <a href="{% url 'eliminar_estudiante' e.id %}"
+        onclick="return confirm('¿Está seguro de la eliminación?')" >
+        eliminar</a>
+      </td>
+  
     </tr>
-  </thead>
+    {% endfor %}
+  </table>
 
-  {% for e in estudiantes %}
-  <tr>
-    <td> {{e.nombre}} {{e.apellido}}</td>
-    <td> {{e.cedula}}</td>
-    <td> {{e.correo}}</td>
-    <td>
-      <ul>
-        {% for t in e.numeros_telefonicos.all %}
-          <li>
-            <span>{{t.telefono}} - {{t.tipo}} - [<a href="{% url 'editar_numero_telefonico' t.id %}">editar</a>] </span>
-          </li>
-        {% endfor %}
-      </ul>
-        [<a href="{% url 'crear_numero_telefonico_estudiante' e.id%}">+Teléfono</a>]
-    </td>
-    <td> <a href="{% url 'obtener_estudiante' e.id %}">ver</a> <br>
-      <a href="{% url 'editar_estudiante' e.id %}">editar</a> <br>
-      <a href="{% url 'eliminar_estudiante' e.id %}"
-      onclick="return confirm('¿Está seguro de la eliminación?')" >
-      eliminar</a>
-    </td>
+</div>
 
-  </tr>
-  {% endfor %}
-</table>
 
 <script type="text/javascript">
   $(document).ready( function () {

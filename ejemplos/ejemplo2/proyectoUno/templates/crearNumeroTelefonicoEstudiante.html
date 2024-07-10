@@ -1,12 +1,12 @@
 {% extends "master.html" %}
 
 {% block content %}
-<h2>Crear Número Telefónico para {{estudiante}}</h3>
-
-<form action="" method="post">
-  {% csrf_token %}
-  {{formulario.as_p}}
-  <p><input type='submit' value='Agregar'/></p>
-</form>
-
+<h2>Crear Número Telefónico para {{estudiante.nombre}} {{estudiante.apellido}}</h3>
+  <div class="contenedor-telefono-estu">
+    <form action="" method="post">
+      {% csrf_token %}
+      {{formulario.as_p}}
+      <p><input type='submit' value='Agregar'/></p>
+    </form>
+  </div>
 {% endblock %}

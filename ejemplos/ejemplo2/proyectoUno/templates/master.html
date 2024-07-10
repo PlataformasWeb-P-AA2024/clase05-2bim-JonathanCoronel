@@ -38,8 +38,8 @@
     <nav class="top_menu" id="nav">
       <ul>
         <li><a href="{% url 'index' %}">inicio</a></li>
-        <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
-        <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
+        <li><a href="{% url 'crear_estudiante' %}">Agregar Estudiante</a></li>
+        <li><a href="{% url 'crear_numero_telefonico' %}">Agregar Telefono</a></li>
         {% if user.is_authenticated %}
           <li><a href="{% url 'logout_view' %}">salir</a></li>
         {% else %}
@@ -50,17 +50,12 @@
     </nav>
     </div>
   </header>
-  {% if user.is_authenticated %}
- <span class="nombre_usuario"> Bienvenido: {{user.username}} </span>
-{% endif %}
+ 
   <section>
       {% block content %}
       {% endblock %}
   </section>
 
-    <footer>
-      <p>Loja-Ecuador</p>
-      <p>{% now "j F Y H:i" %}</p>
-    </footer>
+  {% include 'footer.html' %}
   </body>
 </html>
